@@ -31,7 +31,7 @@ def QVP(D, search_method = "grasp", param = 3):
 
   elif(search_method == "HC"):
     while HC_step(Q, V, order, param):
-      sys.stdout.write("\rGRaSP edge count: %i    " % order.get_edges())
+      sys.stdout.write("\rHC edge count: %i    " % order.get_edges())
       sys.stdout.flush()
   else: 
     raise Exception("The search method does not exist, options=[grasp, HC].") 
@@ -117,7 +117,7 @@ def HC_step(Q, V, order, dist_limit):
         z = cache[0][k]
         order.set(k, z)
         order.set_parents(z, cache[1][k])
-      order.set_edges(cache[3])
+      order.set_edges(cache[2])
       Q = build_Q(Q, V, i+j, i, order)
 
   return False

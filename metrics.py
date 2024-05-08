@@ -12,7 +12,7 @@ def skf1(B, B_pred):
 def pshd(B, B_pred):
   cpdag = make_dag(B).cpdag()
   cpdag_pred = make_dag(B_pred).cpdag()
-  return cpdag.shd(cpdag_pred) / len(B)
+  return (cpdag.shd(cpdag_pred) / len(B))
 
 def make_dag(arr):
   dframe = pd.DataFrame(arr)
