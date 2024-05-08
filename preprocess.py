@@ -6,7 +6,7 @@ import copy
 def preprocess(D):
   normal_theta = compute_theta(D)
   V = compute_V(normal_theta)
-  return V, normal_theta
+  return V
 
 def compute_theta(D):
   cov_matrix = np.cov(D.T)

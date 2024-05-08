@@ -1,22 +1,22 @@
 import numpy as np
 import causaldag as cd
 import pandas as pd
+from sklearn.metrics import f1_score
 
 
-def skeleton_error(B, B_pred):
-  acc = np.array(supp((B_pred + B_pred.T))) - (np.array(supp(B + B.T)))
-  return (len(B)**2 - len(acc[acc == 0]))//2
+def skf1(B, B_pred): 
+    skb = np.array(supp(np.abs(B) + np.abs(B.T))).flatten()
+    skb_pred = np.array(supp(np.abs(B_pred) + np.abs(B_pred.T))).flatten()
+    return f1_score(skb, skb_pred) 
 
-def orientation_error(B, B_pred):
+def pshd(B, B_pred):
   cpdag = make_dag(B).cpdag()
   cpdag_pred = make_dag(B_pred).cpdag()
-  return cpdag.shd(cpdag_pred)
+  return cpdag.shd(cpdag_pred) / len(B)
 
 def make_dag(arr):
   dframe = pd.DataFrame(arr)
   return cd.DAG.from_dataframe(dframe)
 
-def cldag2dag(g):
-  g[g < 0] = 0
-  g[g > 0] = 1
-  return g
+def supp(A):
+  return [[1 if abs(x)>1e-3 else 0 for x in row] for row in A]

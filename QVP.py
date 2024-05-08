@@ -6,9 +6,13 @@ import copy
 from scipy.stats import norm 
 
 from order import Order 
+from preprocess import preprocess
 
-def QVP(V, search_method = "grasp", param = 3):
-  n = V.shape[0]
+def QVP(D, search_method = "grasp", param = 3):
+  V = preprocess(D)
+  global THRESHOLD
+  THRESHOLD = find_Fisher_threshold(len(D), len(V))
+  n = V.shape[0] 
   pi = initial_order(V) 
   order = Order(n, pi=pi)
   Q = V[order.order]
@@ -184,6 +188,12 @@ def initial_order(V, method = "size of markov blanket"):
   if(method == "size of markov blanket"):
     x = (np.array(supp(V @ V.T))).sum(axis = 1)
     return np.argsort(x)[::-1]
+
+def find_Fisher_threshold(N, n):
+  alpha = 2 / n**2
+  phi_inv = norm.ppf(1 - alpha/2, loc=0, scale=1)/np.sqrt(N - n - 1)
+  threshold = 1 - (2 / (1 + np.exp(2 * phi_inv)))
+  return threshold
 
 def supp(A):
   return [[1 if abs(x)>THRESHOLD else 0 for x in row] for row in A]

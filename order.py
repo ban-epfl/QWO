@@ -50,3 +50,8 @@ class Order:
 
     def len(self):
         return len(self.order)
+    
+    def swap(self, i, j):
+      t = self.order[i]
+      self.order[i] = self.order[j]
+      self.order[j] = t

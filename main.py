@@ -3,25 +3,27 @@ import time
 import sys
 
 
-from QVP import QVP_grasp, QVP_Hill_Climbing
+from QVP import QVP
 from generateData import * 
 from preprocess import preprocess 
+from metrics import skf1, pshd
 
 
 n = 50
 number_of_samples = 5000
 average_deg = 2
 erdos_p = 2/(n-1) * average_deg
-THRESHOLD = find_Fisher_threshold(number_of_samples, n)
 depth = 3
 G = generate_graph_erdos(n, erdos_p)
 D, B, N = generate_data_gaussian(G, number_of_samples)
-V, theta = preprocess(D)
+V = preprocess(D)
 
 rtime = time.perf_counter()
-B_pred = QVP_grasp(V, depth=depth)
+B_pred = QVP(D, search_method="grasp", param=depth)
 rtime = time.perf_counter() - rtime
-sys.stdout.write("\nThe algorithm completed in: %.2fs \n" % rtime)
+sys.stdout.write("\nThe algorithm completed in: %.2fs \n" % rtime) 
+print("SKF1 score of the output = ", skf1(B, B_pred))
+print("PSHD of the output = ", pshd(B, B_pred))
 
 
-B_pred2 = QVP_Hill_Climbing(V, dist_limit=5)
+#B_pred2 = QVP(V, search_method="HC", param=5)
