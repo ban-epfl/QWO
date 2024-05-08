@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def QVP_grasp(V, depth = 3, parameters = None, pi=None):
+def QVP_grasp(V, depth = 3, pi=None):
 
   rtime = time.perf_counter()
   n = V.shape[0]

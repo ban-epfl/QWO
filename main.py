@@ -1,5 +1,9 @@
 import numpy as np 
 
+from QVP import QVP_grasp, QVP_Hill_Climbing
+from generateData import * 
+from preprocess import preprocess
+
 
 n = 50
 number_of_samples = 5000
