@@ -18,11 +18,13 @@ def pshd(B, B_pred):
   """
   cpdag = make_dag(np.array(supp(B))).cpdag()
   cpdag_pred = make_dag(np.array(supp(B_pred))).cpdag()
-  print(make_dag(np.array(supp(B))))
-  print(make_dag(np.array(supp(B_pred))))
-  print(make_dag(np.array(supp(B))).cpdag())
-  print(make_dag(np.array(supp(B_pred))).cpdag())
-  print(cpdag.shd(cpdag_pred))
+  #print(B)
+  #print(B_pred)
+  #print(make_dag(np.array(supp(B))))
+  #print(make_dag(np.array(supp(B_pred))))
+  #print(make_dag(np.array(supp(B))).cpdag())
+  #print(make_dag(np.array(supp(B_pred))).cpdag())
+  #print(cpdag.shd(cpdag_pred))
   return (cpdag.shd(cpdag_pred) / len(B))
 
 def make_dag(arr):
