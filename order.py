@@ -1,6 +1,4 @@
-import numpy as np
-import random
-
+# Description: This file contains the Order class which is used to represent the order of the variables during the search process.
 
 class Order:
     def __init__(self, n, pi):
