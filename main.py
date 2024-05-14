@@ -1,25 +1,31 @@
 import numpy as np 
 import time 
 import sys
-
+import pickle
 
 from QVP import QVP
 from generateData import * 
 from metrics import skf1, pshd
+from config import CONFIG
 
 
-n = 50
-number_of_samples = 5000
-average_deg = 2
-depth = 3
-dist_limit = 5
-G = generate_graph_erdos(n, average_deg)
-D, B, N = generate_data_gaussian(G, number_of_samples)
+if(CONFIG.path_to_data == ""):
+    G = generate_graph_erdos(CONFIG.n, CONFIG.average_deg)
+    D, B, N = generate_data_gaussian(G, CONFIG.number_of_samples) 
+
+else: 
+    with open(CONFIG.path_to_data, "wb") as f: 
+        D = np.array(pickle.load(f))
+
+print("#######  Running the experiment on " + str(D.shape[0]) + " data points of " + str(D.shape[1]) + " variables, using "
+       + CONFIG.search_method + " search method. #######")
 
 rtime = time.perf_counter()
-B_pred = QVP(D, search_method="grasp", param=dist_limit)
+B_pred = QVP(D, search_method=CONFIG.search_method, param=CONFIG.search_params[CONFIG.search_method])
 rtime = time.perf_counter() - rtime
 sys.stdout.write("\nThe algorithm completed in: %.2fs \n" % rtime) 
-print("SKF1 score of the output = ", skf1(B, B_pred))
-print("PSHD of the output =", pshd(B, B_pred))
+
+if(CONFIG.path_to_data == ""):
+    print("SKF1 score of the output = ", skf1(B, B_pred))
+    print("PSHD of the output =", pshd(B, B_pred))
 
