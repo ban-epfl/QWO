@@ -11,14 +11,14 @@ from config import CONFIG
 
 if(CONFIG.path_to_data == ""):
     G = generate_graph_erdos(CONFIG.n, CONFIG.average_deg)
-    D, B, N = generate_data_gaussian(G, CONFIG.number_of_samples) 
+    D, B, N = generate_data(G, CONFIG.number_of_samples, CONFIG.noise_dist) 
 
 else: 
     with open(CONFIG.path_to_data, "wb") as f: 
         D = np.array(pickle.load(f))
 
 print("#######  Running the experiment on " + str(D.shape[0]) + " data points of " + str(D.shape[1]) + " variables, using "
-       + CONFIG.search_method + " search method. #######")
+       + CONFIG.search_method + " search method  #######")
 
 rtime = time.perf_counter()
 B_pred = QVP(D, search_method=CONFIG.search_method, param=CONFIG.search_params[CONFIG.search_method])

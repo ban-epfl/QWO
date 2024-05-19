@@ -1,6 +1,5 @@
 import numpy as np
 import sys
-import time
 import random 
 import copy 
 from scipy.stats import norm 

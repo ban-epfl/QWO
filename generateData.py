@@ -13,6 +13,10 @@ def generate_graph_erdos(n, average_deg):
 
     return G_permuted
 
+def generate_data(G, number_of_samples, noise_dist): 
+    generator_functions = {"gaussian": generate_data_gaussian, "exp": generate_data_exp, "gumbel": generate_data_gumbel}
+    return generator_functions[noise_dist](G, number_of_samples)
+
 def generate_data_gaussian(G, number_of_samples):
     """
     Generate matrix B and data from a DAG G with Gaussian noise
@@ -26,7 +30,7 @@ def generate_data_gaussian(G, number_of_samples):
 
 def generate_data_exp(G, number_of_samples):
     """
-    enerate matrix B and data from a DAG G with exponential noise
+    Generate matrix B and data from a DAG G with exponential noise
     """
     n = G.shape[1]
     N_var = 1 + np.random.rand(n)

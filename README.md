@@ -1,59 +1,28 @@
 # QVP
 
-In this project, you can find the official codes of the paper [QVP](https://arxiv.org/abs/2030.12345) and instructions on how to run them. The codes are in python. 
+In this project, you can find the official codes of the paper titled "QVP: Speeding Up Permutation-Based Causal Discovery in LiGAMs" and instructions on how to run them. The codes are in python. 
 
 ## Requirements
 
-To install requirements you just need to run the following command:
+To install requirements you need to run the following command:
 
 ```setup
 pip install -r requirements.txt
 ```
 
 
-## Generate Graph and Data
+## Run an experiment
 
-To generate
+To run a new experiment you only need to change the *config.py* file and then run the following command:
 
-To train the model(s) in the paper, run this command:
-
-```train
-python train.py --input-data <path_to_data> --alpha 10 --beta 20
+```setup
+python3 main.py
 ```
 
->📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
+To modify the data generation process, you can specify the number of variables, the number of data points, the average degree of each node in the Erdos-Renyi graph, and the type of noise in the model (options include Gaussian, exponential, and Gumbel) in the *config.py* file. Additionally, to run an experiment on your existing data, simply insert the path to your pickle file containing the data matrix in CONFIG.path_to_data.
 
-## Evaluation
+The search method and its parameters can be specified using CONFIG.search_method and CONFIG.search_params.
 
-To evaluate my model on ImageNet, run:
+## Results  
 
-```eval
-python eval.py --model-file mymodel.pth --benchmark imagenet
-```
-
->📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
-
-## Pre-trained Models
-
-You can download pretrained models here:
-
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
-
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
-
-## Results
-
-Our model achieves the following performance on :
-
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
-
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
-
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
-
-
-## Contributing
-
->📋  Pick a licence and describe how to contribute to your code repository. 
+## Citation
