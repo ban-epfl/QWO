@@ -12,8 +12,9 @@ CONFIG.average_deg = 2                        # Average degree of nodes for Erdo
 CONFIG.noise_dist = "gaussian"                # Distribution of data noise. options = [gaussian, exp, gumbel]
 
 # Search method 
-CONFIG.search_method = "grasp"                # Options = [grasp, HC]
+CONFIG.search_method = "HC"                # Options = [grasp, HC]
 CONFIG.search_params = {"grasp":3, "HC": 5}   # Depth of DFS in grasp search method and Maximum distance of indices in Hill Climbing search method
 
 # Parameters for existing data
 CONFIG.path_to_data = ""                      # Path to the pickle file containing the matrix of data
+CONFIG.output_file_name = "result"           # File name for saving the adjacency matrix of the predicted graph

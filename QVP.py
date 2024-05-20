@@ -123,7 +123,7 @@ def HC_step(Q, V, order, dist_limit):
       cache[2] = order.get_edges()
 
       order.swap(i, i+j)                                                           # Swap two variables
-      score_bump = update(Q, V, i, j, order, cache)
+      score_bump = update(Q, V, i+j, i, order, cache)
 
       if score_bump > 0:                                                           # New permutation is better
         return True

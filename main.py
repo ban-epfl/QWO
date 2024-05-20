@@ -14,7 +14,7 @@ if(CONFIG.path_to_data == ""):
     D, B, N = generate_data(G, CONFIG.number_of_samples, CONFIG.noise_dist) 
 
 else: 
-    with open(CONFIG.path_to_data, "wb") as f: 
+    with open(CONFIG.path_to_data, "rb") as f: 
         D = np.array(pickle.load(f))
 
 print("#######  Running the experiment on " + str(D.shape[0]) + " data points of " + str(D.shape[1]) + " variables, using "
@@ -28,4 +28,7 @@ sys.stdout.write("\nThe algorithm completed in: %.2fs \n" % rtime)
 if(CONFIG.path_to_data == ""):
     print("SKF1 score of the output = ", skf1(B, B_pred))
     print("PSHD of the output =", pshd(B, B_pred))
+else: 
+    with open("outputs/" + CONFIG.output_file_name, "wb") as f: 
+        pickle.dump(B_pred, f)
 
