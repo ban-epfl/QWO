@@ -1,4 +1,4 @@
-# QVP
+# QVP: Speeding Up Permutation-Based Causal Discovery in LiGAMs
 
 In this project, you can find the official codes of the paper titled "QVP: Speeding Up Permutation-Based Causal Discovery in LiGAMs" and instructions on how to run them. The codes are in python. 
 
@@ -25,4 +25,5 @@ The search method and its parameters can be specified using CONFIG.search_method
 
 ## Results  
 
-## Citation
+The following figure from the paper compares the accuracy and execution time between our method and the state-of-the-art BIC-based score, evaluated on both search methods and varying numbers of variables. $ERn$ denotes the random graph constructed by the Erdős–Rényi method with an average node degree of $n$. For the definition of metrics, refer to the experiments section of the paper. As illustrated in the figure, across all settings, QVP’s accuracy is higher with the Hill Climbing search method and relatively good with GRaSP, while demonstrating a significant speed improvement over BIC in both search methods.
+
