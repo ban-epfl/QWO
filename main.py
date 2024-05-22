@@ -3,7 +3,7 @@ import time
 import sys
 import pickle
 
-from QVP import QVP
+from QWO import QWO
 from generateData import * 
 from metrics import skf1, pshd
 from config import CONFIG
@@ -21,7 +21,7 @@ print("#######  Running the experiment on " + str(D.shape[0]) + " data points of
        + CONFIG.search_method + " search method  #######")
 
 rtime = time.perf_counter()
-B_pred = QVP(D, search_method=CONFIG.search_method, param=CONFIG.search_params[CONFIG.search_method])
+B_pred = QWO(D, search_method=CONFIG.search_method, param=CONFIG.search_params[CONFIG.search_method])
 rtime = time.perf_counter() - rtime
 sys.stdout.write("\nThe algorithm completed in: %.2fs \n" % rtime) 
 

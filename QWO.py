@@ -7,9 +7,9 @@ from scipy.stats import norm
 from order import Order 
 from preprocess import preprocess
 
-def QVP(D, search_method = "grasp", param = 3):
+def QWO(D, search_method = "grasp", param = 3):
   """
-  Return the learned adjacency matrix B from the data matrix D using the QVP algorithm
+  Return the learned adjacency matrix B from the data matrix D using the QWO algorithm
 
   inputs:
   D: data matrix
