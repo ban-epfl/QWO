@@ -1,6 +1,7 @@
 # QWO: Speeding Up Permutation-Based Causal Discovery in LiGAMs
 
-In this project, you can find the official codes of the paper titled "QWO: Speeding Up Permutation-Based Causal Discovery in LiGAMs" and instructions on how to run them. The codes are in python. Also you can play with code for small experiments via the this [colab notebook](https://colab.research.google.com/drive/1fJv34nxoCOXKDJj6xuTfvrekQ-0AhuqA?usp=sharing).
+In this project, you can find the official codes of the paper titled "QWO: Speeding Up Permutation-Based Causal Discovery in LiGAMs" and instructions on how to run them. The codes are in python. 
+Also you can play with code for your experiments via this [colab notebook](https://colab.research.google.com/drive/1fJv34nxoCOXKDJj6xuTfvrekQ-0AhuqA?usp=sharing).
 
 ## Requirements
 
