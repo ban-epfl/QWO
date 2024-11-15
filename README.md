@@ -1,6 +1,6 @@
 # QWO: Speeding Up Permutation-Based Causal Discovery in LiGAMs
 
-In this project, you can find the official codes of the Neurips 2024 paper ["QWO: Speeding Up Permutation-Based Causal Discovery in LiGAMs"](https://openreview.net/forum?id=BptJGaPn9C&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DNeurIPS.cc%2F2024%2FConference%2FAuthors%23your-submissions)) and instructions on how to run them. The codes are in python. 
+In this project, you can find the official codes of the NeurIPS 2024 paper ["QWO: Speeding Up Permutation-Based Causal Discovery in LiGAMs"](https://openreview.net/forum?id=BptJGaPn9C&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DNeurIPS.cc%2F2024%2FConference%2FAuthors%23your-submissions)) and instructions on how to run them. The codes are in python. 
 
 Also you can play with code for your experiments via this [colab notebook](https://colab.research.google.com/drive/1fJv34nxoCOXKDJj6xuTfvrekQ-0AhuqA?usp=sharing).
 
